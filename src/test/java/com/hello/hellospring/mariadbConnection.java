@@ -12,13 +12,14 @@ public class mariadbConnection {
     public void Connection() throws ClassNotFoundException, SQLException {
 
         String url="jdbc:mysql://localhost:3306/corona?serverTimezone=UTC";
-        String id="mkyu0917";
-        String pw="mkyu0917";
+        String id="데이터베이스아이디";
+        String pw="데이터베이스비밀번호";
         Connection conn= null;
 
       try {
           Class.forName("org.mariadb.jdbc.Driver");
           conn = DriverManager.getConnection(url, id, pw);
+          System.out.println("연결성공");
       }catch(SQLException e){
 
           System.out.println("SQL연결오류");
