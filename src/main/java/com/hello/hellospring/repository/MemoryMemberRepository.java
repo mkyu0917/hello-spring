@@ -39,4 +39,8 @@ public class MemoryMemberRepository implements MemberRepository {
         // store map에 있는 모든 값을 리스트 객체에 할당해서 반환해라
         return new ArrayList<>(store.values());
     }
+
+    public void clearStore(){
+        store.clear();
+    }
 }
