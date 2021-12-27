@@ -2,6 +2,7 @@ package com.hello.hellospring.service;
 
 import com.hello.hellospring.domain.Member;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,7 +10,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class MemberServiceTest {
 
     //(Dependency Injection이 아닌 객체를 새로 생성)
-    MemberService memberService = new MemberService();
+    @Autowired
+    private final MemberService memberService;
+
+    public MemberServiceTest(MemberService memberService) {
+        this.memberService = memberService;
+    }
+
+    //MemberService memberService = new MemberService();
 
 
     // 회원가입 테스트
