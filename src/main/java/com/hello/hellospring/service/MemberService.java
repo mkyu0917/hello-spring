@@ -27,7 +27,7 @@ public class MemberService {
         memberRepository.findByName(member.getName())
                 .ifPresent(m -> {
                     // throw new 로 Exception객체를 생성하면 원하는 문장을 출력하게 가능
-                    throw new IllegalArgumentException("이미 존재하는 회원입니다.");
+                    throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
     }
 
