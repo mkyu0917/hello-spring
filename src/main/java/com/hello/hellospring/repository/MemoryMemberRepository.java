@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository // 리포지토리 등록
+//@Repository  리포지토리 어노테이션 주석처리 (SpringConfig에서 빈으로 등록해놓음)
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();

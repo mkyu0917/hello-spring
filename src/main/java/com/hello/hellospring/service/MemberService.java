@@ -3,12 +3,13 @@ package com.hello.hellospring.service;
 import com.hello.hellospring.domain.Member;
 import com.hello.hellospring.repository.MemberRepository;
 import com.hello.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service 주석처리
 public class MemberService {
 
     //리포지토리를 사용하겠다고 명시
