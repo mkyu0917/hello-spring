@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MemoryMemberRepositoryTest {
 
     //MemberRepository 객체를 생성한다.
-    MemberRepository repository = new MemoryMemberRepository();
+    MemoryMemberRepository repository = new MemoryMemberRepository();
 
 
     //callback 함수와 같음, 테스트가 실행되고나서 이후에 한번씩 실행됨 데이터를 지움

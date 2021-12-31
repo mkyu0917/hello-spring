@@ -1,10 +1,14 @@
 package com.hello.hellospring;
 
-import com.hello.hellospring.repository.MemberRepository;
-import com.hello.hellospring.repository.MemoryMemberRepository;
+import com.hello.hellospring.repository.*;
 import com.hello.hellospring.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.persistence.EntityManager;
+import javax.sql.DataSource;
+import javax.swing.text.html.parser.Entity;
 
 
 //수동으로 의존관계 만들기
@@ -12,15 +16,34 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SpringConfig {
 
+    //jpa를 사용하기 위해선 EntityManager가 필요
+   private final EntityManager em;
+
+    public SpringConfig(EntityManager em) {
+        this.em = em;
+    }
+
+   /* private DataSource dataSource;
+
+    public SpringConfig(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+ */
     @Bean// spring di container에 의에 관리되는 객체를 생성 및 등록
     public MemberService memberService() {
         return new MemberService(memberRepository());
     }
 
-    @Bean
+    /*@Bean
     public MemberRepository memberRepository(){
         return new MemoryMemberRepository();
+    }*/
+
+    @Bean
+    public MemberRepository memberRepository(){
+        return new JpaMemberRepository(em);
     }
+
 }
 
 // Bean과 Component 둘다 객체로 등록이 가능하지만 레벨이다름
